@@ -24,8 +24,8 @@ public class Calculadora extends javax.swing.JFrame {
     /**
      * Creates new form Calculadora
      */
-    private String numero1;
-    private String numero2;
+    private String mem;
+    private String mem2;
     private String signo;
     private boolean inicio = true;
 
@@ -263,6 +263,11 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         btnPorc.setText("%");
+        btnPorc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPorcActionPerformed(evt);
+            }
+        });
 
         btnDiv1.setText("1/x");
         btnDiv1.addActionListener(new java.awt.event.ActionListener() {
@@ -383,12 +388,18 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVentanaActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
-        // TODO add your handling code here:
+        String resultado;
+        mem2=txtVentana.getText();
+      
+        if (!mem2.equals("")) {
+            resultado=calcular(mem,mem2,signo);
+            txtVentana.setText(resultado);
+        }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorActionPerformed
         if (!txtVentana.getText().equals("")) {
-            numero1 = txtVentana.getText();
+            mem = txtVentana.getText();
             signo = "*";
             txtVentana.setText("");
         }
@@ -495,7 +506,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
-        txtVentana.setText("0");
+        txtVentana.setText("");
     }//GEN-LAST:event_btnCeActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
@@ -534,7 +545,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
         if (!txtVentana.getText().equals("")) {
-            numero1 = txtVentana.getText();
+            mem = txtVentana.getText();
             signo = "+";
             txtVentana.setText("");
         }
@@ -542,7 +553,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
         if (!txtVentana.getText().equals("")) {
-            numero1 = txtVentana.getText();
+            mem = txtVentana.getText();
             signo = "-";
             txtVentana.setText("");
         }
@@ -550,7 +561,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
         if (!txtVentana.getText().equals("")) {
-            numero1 = txtVentana.getText();
+            mem = txtVentana.getText();
             signo = "/";
             txtVentana.setText("");
         }
@@ -567,13 +578,13 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiv1ActionPerformed
 
     private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
-        String cad;
-        Double num;
-        cad = txtVentana.getText();
-        if (cad.length() > 0) {
-            num = (Double.parseDouble(cad)) * (Double.parseDouble(cad));
-            txtVentana.setText(num.toString());
-        }
+        String num;
+        int numero;
+        double exp = 0;
+        num = txtVentana.getText();
+        numero = Integer.parseInt(num);
+        exp = Math.pow(numero,2);
+        txtVentana.setText(String.valueOf(exp));
     }//GEN-LAST:event_btnExpActionPerformed
 
     private void btnRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizActionPerformed
@@ -585,6 +596,16 @@ public class Calculadora extends javax.swing.JFrame {
         raiz = Math.sqrt(numero);
         txtVentana.setText(String.valueOf(raiz));
     }//GEN-LAST:event_btnRaizActionPerformed
+
+    private void btnPorcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcActionPerformed
+        if (!txtVentana.getText().equals("")) {
+            mem=txtVentana.getText();
+            //mem2=txtVentana.getText();
+            signo="%";
+            txtVentana.setText("");
+            
+        }
+    }//GEN-LAST:event_btnPorcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -637,6 +658,40 @@ public class Calculadora extends javax.swing.JFrame {
         }
         return res;
     }
+    
+    public static String calcular(String mem,String mem2,String signo){
+    Double resultado=0.0;
+    String resp;
+    
+  //Operaciones basicas en todos los botones  
+    if (signo.equals("-")) {
+        resultado=Double.parseDouble(mem)-Double.parseDouble(mem2);
+        
+    }
+    
+    if (signo.equals("+")) {
+        resultado=Double.parseDouble(mem)+Double.parseDouble(mem2);
+        
+    }
+    
+    if (signo.equals("*")) {
+        resultado=Double.parseDouble(mem)*Double.parseDouble(mem2);
+        
+    }
+    
+    if (signo.equals("/")) {
+        resultado=Double.parseDouble(mem)/Double.parseDouble(mem2);
+        
+    }
+    
+    if(signo.equals("%")){
+        resultado=(Double.parseDouble(mem)*Double.parseDouble(mem2))/100;
+        
+    }
+    
+    resp=resultado.toString();
+    return resp;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
