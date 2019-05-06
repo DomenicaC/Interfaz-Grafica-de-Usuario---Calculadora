@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Domenica Cañizares
- * @since 03-Mayo-2019
+ * @since 02-Mayo-2019
  * @version IDE 8.0.2
  */
 public class Calculadora extends javax.swing.JFrame {
@@ -24,9 +24,9 @@ public class Calculadora extends javax.swing.JFrame {
     /**
      * Creates new form Calculadora
      */
-    private String memoria1;
+    private String numero1;
+    private String numero2;
     private String signo;
-    private String memoria2;
     private boolean inicio = true;
 
     public Calculadora() {
@@ -86,16 +86,46 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn1.setText("1");
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +142,11 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn0.setText("0");
         btn0.addActionListener(new java.awt.event.ActionListener() {
@@ -121,8 +156,18 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         jButton25.setText(".");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         btnMN.setText("+/-");
+        btnMN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,7 +227,7 @@ public class Calculadora extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtVentana.setText("0.00");
+        txtVentana.setText("0");
         txtVentana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVentanaActionPerformed(evt);
@@ -190,6 +235,11 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         btnMenos.setText("-");
+        btnMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenosActionPerformed(evt);
+            }
+        });
 
         btnPor.setText("*");
         btnPor.addActionListener(new java.awt.event.ActionListener() {
@@ -206,20 +256,55 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         btnMas.setText("+");
+        btnMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMasActionPerformed(evt);
+            }
+        });
 
         btnPorc.setText("%");
 
         btnDiv1.setText("1/x");
+        btnDiv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiv1ActionPerformed(evt);
+            }
+        });
 
         btnRaiz.setText("√");
+        btnRaiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaizActionPerformed(evt);
+            }
+        });
 
         btnExp.setText("^2");
+        btnExp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExpActionPerformed(evt);
+            }
+        });
 
         btnCe.setText("CE");
+        btnCe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCeActionPerformed(evt);
+            }
+        });
 
         btnDiv.setText("/");
+        btnDiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivActionPerformed(evt);
+            }
+        });
 
         btnC.setText("c");
+        btnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -302,7 +387,11 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorActionPerformed
-        // TODO add your handling code here:
+        if (!txtVentana.getText().equals("")) {
+            numero1 = txtVentana.getText();
+            signo = "*";
+            txtVentana.setText("");
+        }
     }//GEN-LAST:event_btnPorActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
@@ -335,10 +424,172 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn2ActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("3");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "3");
+        }
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("4");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "4");
+        }
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("5");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "5");
+        }
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("6");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "6");
+        }
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("7");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "7");
+        }
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("8");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "8");
+        }
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        if (inicio == true) {
+            txtVentana.setText(" ");
+            txtVentana.setText("9");
+            inicio = false;
+        } else {
+            txtVentana.setText(txtVentana.getText() + "9");
+        }
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
+        txtVentana.setText("0");
+    }//GEN-LAST:event_btnCeActionPerformed
+
+    private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+        String cad;
+        cad = txtVentana.getText();
+
+        if (cad.length() > 0) {
+            cad = cad.substring(0, cad.length() - 1);
+            txtVentana.setText(cad);
+        }
+    }//GEN-LAST:event_btnCActionPerformed
+
+    private void btnMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMNActionPerformed
+        Double num;
+        String cad;
+        cad = txtVentana.getText();
+        if (cad.length() > 0) {
+            num = (-1) * Double.parseDouble(cad);
+            txtVentana.setText(num.toString());
+        }
+    }//GEN-LAST:event_btnMNActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+
+        String cadena;
+        cadena = txtVentana.getText();
+
+        if (cadena.length() <= 0) {
+            txtVentana.setText("0.");
+
+        } else if (!punto(txtVentana.getText())) {
+            txtVentana.setText(txtVentana.getText() + ".");
+
+        }
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
+        if (!txtVentana.getText().equals("")) {
+            numero1 = txtVentana.getText();
+            signo = "+";
+            txtVentana.setText("");
+        }
+    }//GEN-LAST:event_btnMasActionPerformed
+
+    private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
+        if (!txtVentana.getText().equals("")) {
+            numero1 = txtVentana.getText();
+            signo = "-";
+            txtVentana.setText("");
+        }
+    }//GEN-LAST:event_btnMenosActionPerformed
+
+    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
+        if (!txtVentana.getText().equals("")) {
+            numero1 = txtVentana.getText();
+            signo = "/";
+            txtVentana.setText("");
+        }
+    }//GEN-LAST:event_btnDivActionPerformed
+
+    private void btnDiv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiv1ActionPerformed
+        String cad;
+        Double num;
+        cad = txtVentana.getText();
+        if (cad.length() > 0) {
+            num = 1 / (Double.parseDouble(cad));
+            txtVentana.setText(num.toString());
+        }
+    }//GEN-LAST:event_btnDiv1ActionPerformed
+
+    private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
+        String cad;
+        Double num;
+        cad = txtVentana.getText();
+        if (cad.length() > 0) {
+            num = (Double.parseDouble(cad)) * (Double.parseDouble(cad));
+            txtVentana.setText(num.toString());
+        }
+    }//GEN-LAST:event_btnExpActionPerformed
+
+    private void btnRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizActionPerformed
+        String num;
+        int numero;
+        double raiz = 0;
+        num = txtVentana.getText();
+        numero = Integer.parseInt(num);
+        raiz = Math.sqrt(numero);
+        txtVentana.setText(String.valueOf(raiz));
+    }//GEN-LAST:event_btnRaizActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -349,32 +600,21 @@ public static void main(String args[]) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calculadora.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Calculadora.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Calculadora.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Calculadora.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -384,6 +624,18 @@ catch (javax.swing.UnsupportedLookAndFeelException ex) {
                 new Calculadora().setVisible(true);
             }
         });
+    }
+
+    public static boolean punto(String cad) {
+        boolean res = false;
+
+        for (int i = 0; i < cad.length(); i++) {
+            if (cad.substring(i, i + 1).equals(".")) {
+                res = true;
+                break;
+            }
+        }
+        return res;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
