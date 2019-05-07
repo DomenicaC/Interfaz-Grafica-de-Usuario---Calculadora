@@ -5,13 +5,6 @@
  */
 package ec.edu.ups.vista;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -60,7 +53,7 @@ public class Calculadora extends javax.swing.JFrame {
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btn0 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
+        btnPunto = new javax.swing.JButton();
         btnMN = new javax.swing.JButton();
         txtVentana = new javax.swing.JTextField();
         btnMenos = new javax.swing.JButton();
@@ -155,10 +148,10 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        jButton25.setText(".");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        btnPunto.setText(".");
+        btnPunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                btnPuntoActionPerformed(evt);
             }
         });
 
@@ -192,7 +185,7 @@ public class Calculadora extends javax.swing.JFrame {
                         .addComponent(btn0)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -222,7 +215,7 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPunto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMN, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -384,10 +377,11 @@ public class Calculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentanaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtVentanaActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+        //saca resultado
         String resultado;
         num2=txtVentana.getText();
       
@@ -406,6 +400,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPorActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("0");
@@ -416,6 +411,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("1");
@@ -426,6 +422,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("2");
@@ -436,6 +433,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("3");
@@ -446,6 +444,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("4");
@@ -456,6 +455,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("5");
@@ -466,6 +466,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("6");
@@ -476,6 +477,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("7");
@@ -496,6 +498,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        //Asigna valor a los botones su respectivo numero
         if (inicio == true) {
             txtVentana.setText(" ");
             txtVentana.setText("9");
@@ -506,10 +509,12 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
+        //elimina los valores ingresados
         txtVentana.setText("");
     }//GEN-LAST:event_btnCeActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+        //elimina solo un digito
         String cad;
         cad = txtVentana.getText();
 
@@ -520,6 +525,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnMNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMNActionPerformed
+        //hace positivo o negativo a un numero
         Double num;
         String cad;
         cad = txtVentana.getText();
@@ -529,21 +535,22 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMNActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
+        //asigna un punto al valor agregado
+        String cad;
+        cad = txtVentana.getText();
 
-        String cadena;
-        cadena = txtVentana.getText();
-
-        if (cadena.length() <= 0) {
+        if (cad.length() <= 0) {
             txtVentana.setText("0.");
 
         } else if (!punto(txtVentana.getText())) {
             txtVentana.setText(txtVentana.getText() + ".");
 
         }
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }//GEN-LAST:event_btnPuntoActionPerformed
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
+        //asigna el signo + para la operacion
         if (!txtVentana.getText().equals("")) {
             num = txtVentana.getText();
             signo = "+";
@@ -552,6 +559,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMasActionPerformed
 
     private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
+        //asigna el signo - para la operacion
         if (!txtVentana.getText().equals("")) {
             num = txtVentana.getText();
             signo = "-";
@@ -560,6 +568,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenosActionPerformed
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
+        //asigna el signo / para la operacion
         if (!txtVentana.getText().equals("")) {
             num = txtVentana.getText();
             signo = "/";
@@ -568,6 +577,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivActionPerformed
 
     private void btnDiv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiv1ActionPerformed
+        //divide un numero para 1
         String cad;
         Double num;
         cad = txtVentana.getText();
@@ -578,6 +588,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiv1ActionPerformed
 
     private void btnExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpActionPerformed
+       //hace la operacion de exponencial
         String num;
         int numero;
         double exp = 0;
@@ -588,6 +599,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExpActionPerformed
 
     private void btnRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizActionPerformed
+        //hace la operacion de raiz
         String num;
         int numero;
         double raiz = 0;
@@ -598,6 +610,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRaizActionPerformed
 
     private void btnPorcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcActionPerformed
+        //asigna el signo * para la operacion
         if (!txtVentana.getText().equals("")) {
             num=txtVentana.getText();
             //mem2=txtVentana.getText();
@@ -648,6 +661,7 @@ public class Calculadora extends javax.swing.JFrame {
     }
 
     public static boolean punto(String cad) {
+        //sirve para verificar si existe un punto en el numero para realizar la opracion 
         boolean res = false;
 
         for (int i = 0; i < cad.length(); i++) {
@@ -660,6 +674,7 @@ public class Calculadora extends javax.swing.JFrame {
     }
     
     public static String calcular(String num,String num2,String signo){
+        //calcula las opariones dependiendo del signo 
     Double resultado=0.0;
     String resp;
     
@@ -716,8 +731,8 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton btnMenos;
     private javax.swing.JButton btnPor;
     private javax.swing.JButton btnPorc;
+    private javax.swing.JButton btnPunto;
     private javax.swing.JButton btnRaiz;
-    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
