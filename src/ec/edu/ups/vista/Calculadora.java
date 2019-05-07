@@ -24,8 +24,8 @@ public class Calculadora extends javax.swing.JFrame {
     /**
      * Creates new form Calculadora
      */
-    private String mem;
-    private String mem2;
+    private String num;
+    private String num2;
     private String signo;
     private boolean inicio = true;
 
@@ -389,17 +389,17 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
         String resultado;
-        mem2=txtVentana.getText();
+        num2=txtVentana.getText();
       
-        if (!mem2.equals("")) {
-            resultado=calcular(mem,mem2,signo);
+        if (!num2.equals("")) {
+            resultado=calcular(num,num2,signo);
             txtVentana.setText(resultado);
         }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorActionPerformed
         if (!txtVentana.getText().equals("")) {
-            mem = txtVentana.getText();
+            num = txtVentana.getText();
             signo = "*";
             txtVentana.setText("");
         }
@@ -545,7 +545,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
         if (!txtVentana.getText().equals("")) {
-            mem = txtVentana.getText();
+            num = txtVentana.getText();
             signo = "+";
             txtVentana.setText("");
         }
@@ -553,7 +553,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
         if (!txtVentana.getText().equals("")) {
-            mem = txtVentana.getText();
+            num = txtVentana.getText();
             signo = "-";
             txtVentana.setText("");
         }
@@ -561,7 +561,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
         if (!txtVentana.getText().equals("")) {
-            mem = txtVentana.getText();
+            num = txtVentana.getText();
             signo = "/";
             txtVentana.setText("");
         }
@@ -599,7 +599,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnPorcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcActionPerformed
         if (!txtVentana.getText().equals("")) {
-            mem=txtVentana.getText();
+            num=txtVentana.getText();
             //mem2=txtVentana.getText();
             signo="%";
             txtVentana.setText("");
@@ -659,33 +659,34 @@ public class Calculadora extends javax.swing.JFrame {
         return res;
     }
     
-    public static String calcular(String mem,String mem2,String signo){
+    public static String calcular(String num,String num2,String signo){
     Double resultado=0.0;
     String resp;
     
   //Operaciones basicas en todos los botones  
-    if (signo.equals("-")) {
-        resultado=Double.parseDouble(mem)-Double.parseDouble(mem2);
+    
+    if (signo.equals("+")) {
+        resultado=Double.parseDouble(num)+Double.parseDouble(num2);
         
     }
     
-    if (signo.equals("+")) {
-        resultado=Double.parseDouble(mem)+Double.parseDouble(mem2);
+    if (signo.equals("-")) {
+        resultado=Double.parseDouble(num)-Double.parseDouble(num2);
         
     }
     
     if (signo.equals("*")) {
-        resultado=Double.parseDouble(mem)*Double.parseDouble(mem2);
+        resultado=Double.parseDouble(num)*Double.parseDouble(num2);
         
     }
     
     if (signo.equals("/")) {
-        resultado=Double.parseDouble(mem)/Double.parseDouble(mem2);
+        resultado=Double.parseDouble(num)/Double.parseDouble(num2);
         
     }
     
     if(signo.equals("%")){
-        resultado=(Double.parseDouble(mem)*Double.parseDouble(mem2))/100;
+        resultado=(Double.parseDouble(num)*Double.parseDouble(num2))/100;
         
     }
     
